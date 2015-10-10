@@ -5,16 +5,22 @@
   
   <title>多线程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="q">
+  <meta name="description" content="GCD（Grand Central Dispatch）中央大调度  多线程的一种   是苹果公司开发的技术，以优化的应用程序支持多核处理器和其他的对称多处理系统的系统。这建立在任务并行执行的线程池模式基础上的
+进程（process）和进程（thread）是操作系统的基本概念，但是他们比较抽象，不容易掌握。要重点把握
+硬件：计算机内部是怎样来运行的计算机的核心是CPU，它承担了所有计算任务。它就像一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多线程">
 <meta property="og:url" content="http://yoursite.com/2015/10/10/多线程/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="q">
-<meta property="og:updated_time" content="2015-10-10T06:33:32.000Z">
+<meta property="og:description" content="GCD（Grand Central Dispatch）中央大调度  多线程的一种   是苹果公司开发的技术，以优化的应用程序支持多核处理器和其他的对称多处理系统的系统。这建立在任务并行执行的线程池模式基础上的
+进程（process）和进程（thread）是操作系统的基本概念，但是他们比较抽象，不容易掌握。要重点把握
+硬件：计算机内部是怎样来运行的计算机的核心是CPU，它承担了所有计算任务。它就像一">
+<meta property="og:updated_time" content="2015-10-10T12:37:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程">
-<meta name="twitter:description" content="q">
+<meta name="twitter:description" content="GCD（Grand Central Dispatch）中央大调度  多线程的一种   是苹果公司开发的技术，以优化的应用程序支持多核处理器和其他的对称多处理系统的系统。这建立在任务并行执行的线程池模式基础上的
+进程（process）和进程（thread）是操作系统的基本概念，但是他们比较抽象，不容易掌握。要重点把握
+硬件：计算机内部是怎样来运行的计算机的核心是CPU，它承担了所有计算任务。它就像一">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -82,12 +88,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>q</p>
+        <p>GCD（Grand Central Dispatch）中央大调度  多线程的一种   是苹果公司开发的技术，以优化的应用程序支持多核处理器和其他的对称多处理系统的系统。这建立在任务并行执行的线程池模式基础上的</p>
+<p>进程（process）和进程（thread）是操作系统的基本概念，但是他们比较抽象，不容易掌握。要重点把握</p>
+<p>硬件：计算机内部是怎样来运行的<br>计算机的核心是CPU，它承担了所有计算任务。它就像一座工厂，时刻在运行。假定工厂电力有限，一次只能攻击一个车间使用。也就是说，一个车间开工的时候，其他车间都必须停工。背后的含义就是，单个CPU一次只能运行一个任务。<br>进程就好比工厂的车间，它代表CPU能处理的单个任务。任一时刻，CPU总是运行一个进程，其它进进程处于非运行状态*（一个CPU一次只能读取一个代码）<br>一个车间里，可以有很多工人。他们协同完成一个任务。<br>线程就好比车间的工人。一个进程可以包含多个线程。<br>车间的空间施工人共享的，比如许多房间是每个工人都可以进出的。这象征一个进程的内存空间是共享的，每个线程都可以使用这些共享内存。<br>可是，每个空间的大小不同，有些房间最多只能容纳一个人，比如厕所。里面有人的时候，其他人就不能进去了。这代表一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存。<br>一个防止他人进入的简单方法，就是门口家一把锁。先到的人锁上门，后到的人看到上锁，就在门口排队，等锁打开再进去。这就叫“互斥锁”（Mutual exclusion, 缩写Mutex），防止多线程同时读写某一块内存区域。  互斥锁的目的：防止多个线程同时读写某块内存<br>还有些房间，可以同时容纳n个人，比如厨房。也就是说，如果人数大于n，多出来的人只能在外面等着。这好比某些内存区域，只能攻击固定数目的线程使用。<br>这时的解决办法，就是在门口挂n把钥匙。进去的人就取一把钥匙，出来时再把钥匙挂回原处。后到的人发现钥匙架空了，就知道必须在门口排队等着了。这种做法叫做“信号量”（Semaphore），用来保证多个线程不会互相冲突。<br>mutex是semaphore的一种特殊情况（n= 1时）。也就是说，完全可以用后者替代前者。但是，因为mutex较为简单，且效率高，所以在必须保证资源独占的情况下，还是采用这种设计。</p>
+<p>主流操作系统的设计，因此归结为三点：<br>（1）以多进程形式，允许多个任务同时运行；<br>（2）以多线程形式，允许单个任务分成不同的部分运行；<br>（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源</p>
+<p>CPU密集型与IO密集型（输入输出），一般操作系统优先用IO</p>
+<p>计算机调度以什么单位：进程（资源分配的单位，最早以前的是用进程作为调度单位）与线程（一个线程执行特定的任务，就好比一个工人做具体的工作，现在以线程作为调度单位）</p>
+<p>进程之间真正做的事是通信，IPC（Inter process Communication）进程间通信<br>线程之间真正要做的事是同步与互斥<br>计算机的通信就是数据的通信</p>
+<p>进程概念<br>狭义定义：进程就是一段程序的执行过程。<br>广义定义（官方的）：进程是一个具有一定独立功能的程序关于某个数据集合的一次活动。它是操作系统动态执行的基本单元，系统操作中，进程是基本的分配单元</p>
+<p>主要两点<br>第一：进程是一个实体。每一个进程都有他自己的地址空间，一般情况下，包括文本区域（text region）、数据区域（data region）和堆栈（stack region）。文本区域存储处理器执行的代码；数据区域存储变量和进程执行期间使用的动态分配的内存；堆栈存储这活动过程调用的指令和本地变量。<br>第二：进程是一个“执行中的程序”。</p>
+<p>进程与程序的区别<br>程序是指令和数据的有序集合，其本身没有任何运行的含义，是一个静态的概念。而进程是程序在处理机上的一次执行过程，它是一个动态的概念。<br>程序可以作为一种软件资料长期存在，而进程是有一定生命期的。程序是永久的，进程是暂时的。<br>进程更能真实的描述并发，而程序不能；<br>进程是由进程控制块、程序块、数据段三部分组成；<br>进程具有创建其他进程的功能，而程序没有。<br>同一程序同时运行若干个数据集合上，它将属于若干个不同的进程，也就是说同一程序可以对应多个进程。<br>在传统的操作系统中，程序并不能独立运行，作为资源分配和独立运行的基本单元都是进程</p>
+<p>进程的缺点<br>独立的地址空间使得不同的进程共享状态信息变得非常困难，为了共享信息，它们必须是显示的使用（进程通信机制）<br>进程之间通信比较慢，因为进程控制和进程通信机制开销很大</p>
+<p>管道、套接字、消息队列、信号</p>
+<p>线程概述<br>进程作为分配资源的基本单位，而把线程作为独立运行和独立调度的基本单位，由于线程比进程更小，基本上不拥有系统资源，故对它的调度所付出的开销就会小得多，能更高效的提高系统内多个程序间并发执行的程度、<br>一个线程就是运行在进程上下文的一个逻辑流。现代操作系统允许我们编写一个进程里同时运行多个线程的程序。线程由内核调度。每个进程开始生命周期都是单一线程，这个线程称为主线程，在某一时刻，主线程创建一个对等线程。从这个时间点开始，两个线程就并发运行。最后，因为主线程执行一个慢速系统调用，如read或者sleep，控制就会通过上下文切换传递到对等线程。在控制传递回主线程前，对等线程会执行一段时间</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/10/多线程/" data-id="cifl1wjvq000292zj81duwxtc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/10/多线程/" data-id="cifl2i6ka0000erzjhwajgzm8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -96,20 +114,15 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/10/10/iOS面试题-html/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/10/视图迁移方式/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          iOS面试题.html
+          视图迁移方式
         
       </div>
     </a>
   
-  
-    <a href="/2015/10/09/text/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">text</div>
-    </a>
   
 </nav>
 
@@ -130,7 +143,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -146,19 +159,7 @@
           </li>
         
           <li>
-            <a href="/2015/10/10/shanghai/">shanghai</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/10/iOS面试题-html/">iOS面试题.html</a>
-          </li>
-        
-          <li>
             <a href="/2015/10/10/多线程/">多线程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/09/text/">text</a>
           </li>
         
       </ul>
