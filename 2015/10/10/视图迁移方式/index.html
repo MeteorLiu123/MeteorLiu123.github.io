@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>text | Hexo</title>
+  <title>视图迁移方式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="视图迁移方式有多种，这里只介绍三种：
+从另一个视图控制器把视图添加到当前的视图控制器，作为子视图。如果在添加之前不把前一个删除的话，整个栈上的子视图将难于管理。最终整个栈会堆满许多不用子视图。通常不建议这种视图迁移方式。通过带有视图顶部导航条的NINavigationController的实例。UINavigationController的实例被用一个根控制器初始化，根控制器把自己的视图提供给UI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="text">
-<meta property="og:url" content="http://yoursite.com/2015/10/09/text/index.html">
+<meta property="og:title" content="视图迁移方式">
+<meta property="og:url" content="http://yoursite.com/2015/10/10/视图迁移方式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-10-09T12:17:01.000Z">
+<meta property="og:description" content="视图迁移方式有多种，这里只介绍三种：
+从另一个视图控制器把视图添加到当前的视图控制器，作为子视图。如果在添加之前不把前一个删除的话，整个栈上的子视图将难于管理。最终整个栈会堆满许多不用子视图。通常不建议这种视图迁移方式。通过带有视图顶部导航条的NINavigationController的实例。UINavigationController的实例被用一个根控制器初始化，根控制器把自己的视图提供给UI">
+<meta property="og:updated_time" content="2015-10-10T12:20:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="text">
-<meta name="twitter:description">
+<meta name="twitter:title" content="视图迁移方式">
+<meta name="twitter:description" content="视图迁移方式有多种，这里只介绍三种：
+从另一个视图控制器把视图添加到当前的视图控制器，作为子视图。如果在添加之前不把前一个删除的话，整个栈上的子视图将难于管理。最终整个栈会堆满许多不用子视图。通常不建议这种视图迁移方式。通过带有视图顶部导航条的NINavigationController的实例。UINavigationController的实例被用一个根控制器初始化，根控制器把自己的视图提供给UI">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,10 +63,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-text" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-视图迁移方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/10/09/text/" class="article-date">
-  <time datetime="2015-10-09T12:17:01.000Z" itemprop="datePublished">2015-10-09</time>
+    <a href="/2015/10/10/视图迁移方式/" class="article-date">
+  <time datetime="2015-10-10T12:19:49.000Z" itemprop="datePublished">2015-10-10</time>
 </a>
     
   </div>
@@ -74,7 +77,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      text
+      视图迁移方式
     </h1>
   
 
@@ -82,11 +85,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>视图迁移方式有多种，这里只介绍三种：</p>
+<p>从另一个视图控制器把视图添加到当前的视图控制器，作为子视图。如果在添加之前不把前一个删除的话，整个栈上的子视图将难于管理。最终整个栈会堆满许多不用子视图。通常不建议这种视图迁移方式。<br>通过带有视图顶部导航条的NINavigationController的实例。UINavigationController的实例被用一个根控制器初始化，根控制器把自己的视图提供给UINavigationController作为第一个视图。当需要迁移到另一个视图控制器的时候，视图控制器所有者把他的控制器压入UINavigationController。然后UINavigationController会处理视图迁移的全部细节，包括新视图进入屏幕的迁移效果与方向。UINavigationController管理内部的视图控制器栈。当前位于栈顶的视图控制器会显示在屏幕上。当视图返回到前一个视图时，将从栈中弹出其控制器，然后下面的一个将被显示。<br>最后一个也是非常重要的方法是一次一个地显示模型-视图-控制器。视图迁移通过直接使用视图控制器来管理，而不涉及其他视图控制器的个别视图。其流程非常简洁，一次显示一个视图控制器然后从一个试图控制器迁移到另一个。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/09/text/" data-id="cifl1wjvr000392zj45dq7am1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/10/视图迁移方式/" data-id="cifl1wjvn000192zjprscipto" class="article-share-link">Share</a>
       
       
     </footer>
@@ -95,15 +100,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/10/10/多线程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          多线程
-        
-      </div>
-    </a>
   
+    <a href="/2015/10/10/shanghai/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">shanghai</div>
+    </a>
   
 </nav>
 
